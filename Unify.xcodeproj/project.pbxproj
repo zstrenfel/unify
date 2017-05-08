@@ -13,8 +13,9 @@
 		926EEDBE1EC0F8A9001989FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 926EEDBD1EC0F8A9001989FE /* Assets.xcassets */; };
 		926EEDC11EC0F8A9001989FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926EEDBF1EC0F8A9001989FE /* LaunchScreen.storyboard */; };
 		926EEDCA1EC11375001989FE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDC81EC11375001989FE /* Model.xcdatamodeld */; };
-		926EEDCD1EC115EA001989FE /* SecurityImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDCB1EC115EA001989FE /* SecurityImage+CoreDataClass.swift */; };
-		926EEDCE1EC115EA001989FE /* SecurityImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDCC1EC115EA001989FE /* SecurityImage+CoreDataProperties.swift */; };
+		926EEDD11EC116C3001989FE /* SecurityImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDCF1EC116C3001989FE /* SecurityImage+CoreDataClass.swift */; };
+		926EEDD21EC116C3001989FE /* SecurityImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDD01EC116C3001989FE /* SecurityImage+CoreDataProperties.swift */; };
+		926EEDD41EC1182C001989FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDD31EC1182C001989FE /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		926EEDC01EC0F8A9001989FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		926EEDC21EC0F8A9001989FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		926EEDC91EC11375001989FE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		926EEDCB1EC115EA001989FE /* SecurityImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecurityImage+CoreDataClass.swift"; sourceTree = "<group>"; };
-		926EEDCC1EC115EA001989FE /* SecurityImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecurityImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		926EEDCF1EC116C3001989FE /* SecurityImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecurityImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		926EEDD01EC116C3001989FE /* SecurityImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecurityImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		926EEDD31EC1182C001989FE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +46,8 @@
 		926EEDAA1EC0F8A5001989FE = {
 			isa = PBXGroup;
 			children = (
-				926EEDCB1EC115EA001989FE /* SecurityImage+CoreDataClass.swift */,
-				926EEDCC1EC115EA001989FE /* SecurityImage+CoreDataProperties.swift */,
+				926EEDCF1EC116C3001989FE /* SecurityImage+CoreDataClass.swift */,
+				926EEDD01EC116C3001989FE /* SecurityImage+CoreDataProperties.swift */,
 				926EEDB51EC0F8A5001989FE /* Unify */,
 				926EEDB41EC0F8A5001989FE /* Products */,
 			);
@@ -69,6 +71,7 @@
 				926EEDBF1EC0F8A9001989FE /* LaunchScreen.storyboard */,
 				926EEDC21EC0F8A9001989FE /* Info.plist */,
 				926EEDC81EC11375001989FE /* Model.xcdatamodeld */,
+				926EEDD31EC1182C001989FE /* LoginViewController.swift */,
 			);
 			path = Unify;
 			sourceTree = "<group>";
@@ -146,9 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				926EEDCE1EC115EA001989FE /* SecurityImage+CoreDataProperties.swift in Sources */,
+				926EEDD41EC1182C001989FE /* LoginViewController.swift in Sources */,
+				926EEDD21EC116C3001989FE /* SecurityImage+CoreDataProperties.swift in Sources */,
 				926EEDB91EC0F8A7001989FE /* ViewController.swift in Sources */,
-				926EEDCD1EC115EA001989FE /* SecurityImage+CoreDataClass.swift in Sources */,
+				926EEDD11EC116C3001989FE /* SecurityImage+CoreDataClass.swift in Sources */,
 				926EEDB71EC0F8A6001989FE /* AppDelegate.swift in Sources */,
 				926EEDCA1EC11375001989FE /* Model.xcdatamodeld in Sources */,
 			);
