@@ -38,11 +38,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-K4-eX7">
-                                <rect key="frame" x="50" y="268" width="275" height="131"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-K4-eX7">
+                                <rect key="frame" x="50" y="257" width="275" height="153"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xS9-UD-q81">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="50.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xS9-UD-q81">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="52.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8m-VZ-8B3">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="20.5"/>
@@ -51,15 +51,15 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTL-Zg-UCa">
-                                                <rect key="frame" x="0.0" y="20.5" width="275" height="30"/>
+                                                <rect key="frame" x="0.0" y="22.5" width="275" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-ln-zV4">
-                                        <rect key="frame" x="0.0" y="50.5" width="275" height="50.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-ln-zV4">
+                                        <rect key="frame" x="0.0" y="61.5" width="275" height="52.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8u-C3-7QB">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="20.5"/>
@@ -68,7 +68,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rZj-EN-m7B">
-                                                <rect key="frame" x="0.0" y="20.5" width="275" height="30"/>
+                                                <rect key="frame" x="0.0" y="22.5" width="275" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -76,7 +76,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elp-XK-vSk">
-                                        <rect key="frame" x="0.0" y="101" width="275" height="30"/>
+                                        <rect key="frame" x="0.0" y="123" width="275" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="login:" destination="G60-P8-Wdz" eventType="touchUpInside" id="RJE-E0-Re4"/>
@@ -95,8 +95,8 @@
                     <navigationItem key="navigationItem" id="bxb-n4-B2C"/>
                     <connections>
                         <outlet property="loginButton" destination="elp-XK-vSk" id="TT9-47-UBT"/>
-                        <outlet property="nameField" destination="rZj-EN-m7B" id="PtN-X9-Qeu"/>
-                        <outlet property="passwordField" destination="X8m-VZ-8B3" id="ef0-nB-cvM"/>
+                        <outlet property="nameField" destination="aTL-Zg-UCa" id="R1p-On-L4d"/>
+                        <outlet property="passwordField" destination="rZj-EN-m7B" id="q5c-Md-qKd"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showMain" id="J3R-7w-bg2"/>
                     </connections>
                 </viewController>

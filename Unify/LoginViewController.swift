@@ -13,7 +13,7 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var passwordField: UILabel!
+    @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
     let MyKeychainWrapper = KeychainWrapper()
@@ -58,10 +58,17 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func login(_ sender: UIButton) {
-        self.login(sender)
+        self._login(sender)
     }
     
     func _login(_ sender: UIButton) {
+        if (self.nameField.text == "" || self.passwordField.text == "") {
+            let alertView = UIAlertController(title: "Login Problem", message: "Please enter both username and password." as String, preferredStyle:.alert)
+            let okAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+            alertView.addAction(okAction)
+            self.present(alertView, animated: true, completion: nil)
+        }
+        
         self.nameField.resignFirstResponder()
         self.passwordField.resignFirstResponder()
         
@@ -83,7 +90,7 @@ class LoginViewController: UIViewController {
                 performSegue(withIdentifier: "showMain", sender: self)
             } else {
                 let alertView = UIAlertController(title: "Login Problem", message: "Wrong username or password." as String, preferredStyle:.alert)
-                let okAction = UIAlertAction(title: "Foiled Again!", style: .default, handler: nil)
+                let okAction = UIAlertAction(title: "Close", style: .default, handler: nil)
                 alertView.addAction(okAction)
                 self.present(alertView, animated: true, completion: nil)
             }
