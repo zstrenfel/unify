@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
@@ -15,9 +16,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var captureDevice: AVCaptureDevice?
     var capturePhotoOutput: AVCapturePhotoOutput?
     var photoSampleBuffers: [CMSampleBuffer] = []
+    var photoSamplePreviewBuffers: [CMSampleBuffer] = []
     var timer: Timer? = nil
     var pictureCount = 0
     var PICTURE_LIMIT = 10
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     @IBOutlet weak var captureButton: UIButton!
@@ -69,8 +73,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     func takePhoto() {
         guard let capturePhotoOutput = self.capturePhotoOutput else { return }
-        if (pictureCount < PICTURE_LIMIT - 1) {
-            pictureCount += 1
+        pictureCount += 1
+        if (pictureCount < PICTURE_LIMIT) {
             self.startTimer()
         }
         DispatchQueue.main.async {
@@ -86,15 +90,21 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             return
         }
         self.photoSampleBuffers.append(photoSampleBuffer!)
+        self.photoSamplePreviewBuffers.append(previewPhotoSampleBuffer!)
     }
     
     func capture(_ captureOutput: AVCapturePhotoOutput, didFinishCaptureForResolvedSettings resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
-        if (pictureCount == PICTURE_LIMIT - 1) {
+        if (pictureCount == PICTURE_LIMIT) {
             self.captureSession.stopRunning()
             print("done")
+            for i in 0..<self.photoSampleBuffers.count {
+                let jpgData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: self.photoSampleBuffers[i], previewPhotoSampleBuffer: photoSamplePreviewBuffers[i])
+                let image = SecurityImage(context: context)
+                image.setValue(jpgData, forKey: "data")
+                image.setValue(Date(), forKey: "created_at")
+            }
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
-        //save to keychain
-        
     }
     
     
