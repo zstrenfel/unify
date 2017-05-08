@@ -2,6 +2,8 @@
 //  LoginViewController.swift
 //  Unify
 //
+// taken from: https://www.raywenderlich.com/92667/securing-ios-data-keychain-touch-id-1password
+//
 //  Created by Zach Strenfel on 5/8/17.
 //  Copyright © 2017 Zach Strenfel. All rights reserved.
 //
@@ -14,11 +16,26 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     
-    var username = "John"
-    var password = "password"
+    let MyKeychainWrapper = KeychainWrapper()
+    let createLoginButtonTag = 0
+    let loginButtonTag = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let hasLogin = UserDefaults.standard.bool(forKey: "hasLoginKey")
+        
+        if (hasLogin) {
+            self.loginButton.setTitle("Login", for: .normal)
+            self.loginButton.tag = self.loginButtonTag
+        } else {
+            self.loginButton.setTitle("Sign Up", for: .normal)
+            self.loginButton.tag = self.createLoginButtonTag
+        }
+        
+        if let storedUsername = UserDefaults.standard.value(forKey: "username") as? String {
+            self.nameField.text = storedUsername
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -27,13 +44,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    func checkLogin(name: String, password: String) {
-        if (username == self.name && password == self.password) {
-            self.performSegue(withIdentifier: "showMain", sender: self)
-        }
-    }
+
 
     /*
     // MARK: - Navigation
@@ -47,6 +58,43 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func login(_ sender: UIButton) {
+        self.login(sender)
+    }
+    
+    func _login(_ sender: UIButton) {
+        self.nameField.resignFirstResponder()
+        self.passwordField.resignFirstResponder()
+        
+        if sender.tag == self.createLoginButtonTag {
+            let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
+            if !hasLoginKey {
+                UserDefaults.standard.set(self.nameField.text, forKey: "username")
+            }
+            
+            MyKeychainWrapper.mySetObject(self.passwordField.text, forKey: kSecValueData)
+            MyKeychainWrapper.writeToKeychain()
+            UserDefaults.standard.set(true, forKey: "hasLoginKey")
+            UserDefaults.standard.synchronize()
+            
+            loginButton.tag = loginButtonTag
+            performSegue(withIdentifier: "showMain", sender: self)
+        } else if sender.tag == loginButtonTag {
+            if (self.checkLogin(name: self.nameField.text!, password: self.passwordField.text!)) {
+                performSegue(withIdentifier: "showMain", sender: self)
+            } else {
+                let alertView = UIAlertController(title: "Login Problem", message: "Wrong username or password." as String, preferredStyle:.alert)
+                let okAction = UIAlertAction(title: "Foiled Again!", style: .default, handler: nil)
+                alertView.addAction(okAction)
+                self.present(alertView, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func checkLogin(name: String, password: String) -> Bool {
+        if password == MyKeychainWrapper.myObject(forKey: "v_data") as? String && name == UserDefaults.standard.value(forKey: "username") as? String {
+            return true
+        }
+        return false
     }
 
 }

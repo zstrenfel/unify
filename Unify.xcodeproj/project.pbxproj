@@ -16,6 +16,7 @@
 		926EEDD11EC116C3001989FE /* SecurityImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDCF1EC116C3001989FE /* SecurityImage+CoreDataClass.swift */; };
 		926EEDD21EC116C3001989FE /* SecurityImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDD01EC116C3001989FE /* SecurityImage+CoreDataProperties.swift */; };
 		926EEDD41EC1182C001989FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDD31EC1182C001989FE /* LoginViewController.swift */; };
+		926EEDD81EC1199E001989FE /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 926EEDD71EC1199E001989FE /* KeychainWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,9 @@
 		926EEDCF1EC116C3001989FE /* SecurityImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecurityImage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		926EEDD01EC116C3001989FE /* SecurityImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SecurityImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		926EEDD31EC1182C001989FE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		926EEDD51EC1199D001989FE /* Unify-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unify-Bridging-Header.h"; sourceTree = "<group>"; };
+		926EEDD61EC1199E001989FE /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainWrapper.h; path = ../../../Downloads/KeychainWrapper/KeychainWrapper.h; sourceTree = "<group>"; };
+		926EEDD71EC1199E001989FE /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainWrapper.m; path = ../../../Downloads/KeychainWrapper/KeychainWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +70,15 @@
 			children = (
 				926EEDB61EC0F8A6001989FE /* AppDelegate.swift */,
 				926EEDB81EC0F8A7001989FE /* ViewController.swift */,
+				926EEDD61EC1199E001989FE /* KeychainWrapper.h */,
+				926EEDD71EC1199E001989FE /* KeychainWrapper.m */,
 				926EEDBA1EC0F8A8001989FE /* Main.storyboard */,
 				926EEDBD1EC0F8A9001989FE /* Assets.xcassets */,
 				926EEDBF1EC0F8A9001989FE /* LaunchScreen.storyboard */,
 				926EEDC21EC0F8A9001989FE /* Info.plist */,
 				926EEDC81EC11375001989FE /* Model.xcdatamodeld */,
 				926EEDD31EC1182C001989FE /* LoginViewController.swift */,
+				926EEDD51EC1199D001989FE /* Unify-Bridging-Header.h */,
 			);
 			path = Unify;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 					926EEDB21EC0F8A5001989FE = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 3M52FD8V47;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -153,6 +161,7 @@
 				926EEDD21EC116C3001989FE /* SecurityImage+CoreDataProperties.swift in Sources */,
 				926EEDB91EC0F8A7001989FE /* ViewController.swift in Sources */,
 				926EEDD11EC116C3001989FE /* SecurityImage+CoreDataClass.swift in Sources */,
+				926EEDD81EC1199E001989FE /* KeychainWrapper.m in Sources */,
 				926EEDB71EC0F8A6001989FE /* AppDelegate.swift in Sources */,
 				926EEDCA1EC11375001989FE /* Model.xcdatamodeld in Sources */,
 			);
@@ -279,11 +288,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3M52FD8V47;
 				INFOPLIST_FILE = Unify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Dack.Unify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Unify/Unify-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -292,11 +304,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3M52FD8V47;
 				INFOPLIST_FILE = Unify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Dack.Unify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Unify/Unify-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
